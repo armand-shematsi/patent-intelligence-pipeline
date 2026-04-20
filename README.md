@@ -1,16 +1,35 @@
-# Patent Intelligence Pipeline
+# Global Patent Intelligence Data Pipeline
 
-This pipeline is designed to download, clean, and process patent data for intelligence analysis.
+A full data pipeline that collects, cleans, stores, and analyzes
+real US patent data from USPTO PatentsView (1976-2025).
 
-## Structure
+## Results
+- Total Patents: 9,454,161
+- Top Inventor: Shunpei Yamazaki (6,787 patents)
+- Top Company: Samsung Display Co., Ltd. (174,536 patents)
+- Data Range: 1976 - 2025
 
-- `data/raw/`: Original downloaded files.
-- `data/clean/`: Processed CSV files.
-- `scripts/`: Python scripts for each stage of the pipeline.
-- `sql/`: Database schema and SQL scripts.
-- `reports/`: Generated analysis reports.
+## How to Run
 
-## Getting Started
+1. Install dependencies
+   pip install -r requirements.txt
 
-1. Install dependencies: `pip install -r requirements.txt`
-2. Run scripts in order: download -> clean -> load_db -> report.
+2. Place raw TSV files in data/raw/ from patentsview.org
+
+3. Clean the data
+   python scripts/clean.py
+
+4. Load into database
+   python scripts/load_db.py
+
+5. Run queries
+   python scripts/queries.py
+
+6. Generate reports
+   python scripts/report.py
+
+## Tools Used
+- Python, pandas, SQLite, matplotlib
+
+## Data Source
+USPTO PatentsView - https://patentsview.org
